@@ -1,0 +1,6 @@
+work/
+out/
+dist/
+repo/
+__pycache__/
+*.iso

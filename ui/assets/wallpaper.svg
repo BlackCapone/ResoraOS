@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1600" viewBox="0 0 2560 1600">
+  <defs>
+    <linearGradient id="base" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dac1a8"/>
+      <stop offset=".24" stop-color="#b9a99f"/>
+      <stop offset=".52" stop-color="#646b81"/>
+      <stop offset=".76" stop-color="#59627c"/>
+      <stop offset="1" stop-color="#c4a7ac"/>
+    </linearGradient>
+    <linearGradient id="cream" x1=".1" y1="0" x2=".85" y2="1">
+      <stop stop-color="#f8e7d1"/>
+      <stop offset=".28" stop-color="#d8c0aa"/>
+      <stop offset=".58" stop-color="#9b8c91"/>
+      <stop offset="1" stop-color="#464b61"/>
+    </linearGradient>
+    <linearGradient id="shadowFold" x1="0" y1="0" x2="1" y2=".82">
+      <stop stop-color="#7a6d72"/>
+      <stop offset=".34" stop-color="#3c435a"/>
+      <stop offset=".68" stop-color="#242b43"/>
+      <stop offset="1" stop-color="#768198"/>
+    </linearGradient>
+    <linearGradient id="blueFold" x1=".2" y1="0" x2=".9" y2="1">
+      <stop stop-color="#bec6d5"/>
+      <stop offset=".19" stop-color="#74809b"/>
+      <stop offset=".52" stop-color="#343d59"/>
+      <stop offset=".78" stop-color="#545c75"/>
+      <stop offset="1" stop-color="#d1afb4"/>
+    </linearGradient>
+    <linearGradient id="roseFold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#837b8c"/>
+      <stop offset=".45" stop-color="#b3a0a7"/>
+      <stop offset=".72" stop-color="#e0beb4"/>
+      <stop offset="1" stop-color="#8f7587"/>
+    </linearGradient>
+    <linearGradient id="edgeLight" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fff1db" stop-opacity=".94"/>
+      <stop offset=".5" stop-color="#e0d0c7" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#c4c9d8" stop-opacity=".08"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".15" cy=".05" r=".95">
+      <stop stop-color="#fff1dc" stop-opacity=".65"/>
+      <stop offset="1" stop-color="#fff1dc" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+  </defs>
+  <rect width="2560" height="1600" fill="url(#base)"/>
+  <rect width="2560" height="1600" fill="url(#glow)"/>
+  <!-- Long, folded-paper forms inspired by the restrained Golden Gate abstract wallpaper. -->
+  <path d="M-180-80H1440C1310 100 1110 200 1120 390c9 185 275 282 310 475 37 210-175 415-480 735H-180Z" fill="url(#cream)"/>
+  <path d="M-160-40H935C1110 95 1195 180 1165 335c-42 217-349 263-361 470-10 180 196 351 295 540 46 89 70 178 78 335H-160Z" fill="#b9a39c" opacity=".56"/>
+  <path d="M380-120C900-70 1130 20 1330 260c156 188 164 350 31 502-122 140-319 220-322 387-2 134 123 286 284 531H950c-214-251-354-421-389-592-51-245 251-346 348-518 84-148 35-269-170-570Z" fill="url(#shadowFold)"/>
+  <path d="M510-70C1020-36 1258 122 1404 335c110 160 101 292-33 430-118 121-296 198-298 374-1 123 95 265 234 451h-195c-146-196-238-350-227-512 14-213 213-298 323-439 112-144 56-275-114-446C964 31 760-17 510-70Z" fill="url(#edgeLight)" opacity=".58"/>
+  <path d="M980-110H2700V1710H1390c-56-207-101-366-82-523 29-244 286-334 361-528 73-190-51-352-278-466-141-71-291-113-411-139Z" fill="url(#blueFold)"/>
+  <path d="M1120-120C1600-10 1918 151 1974 385c49 204-158 319-337 464-126 101-188 236-158 377 19 92 82 214 175 374h-172c-96-174-150-313-150-444 0-217 187-338 318-460 161-150 178-270 68-422C1595 97 1377 4 1120-120Z" fill="url(#shadowFold)" opacity=".95"/>
+  <path d="M1430-70C1835 44 2117 213 2180 427c57 193-90 317-278 472-145 120-206 247-163 381 20 65 63 173 133 320h-122c-82-166-127-294-124-414 6-208 178-332 316-464 143-137 167-254 69-399-112-165-335-273-581-393Z" fill="url(#edgeLight)" opacity=".42"/>
+  <path d="M1720-80H2700V1680H2036c-137-215-210-394-181-545 38-204 263-311 365-492 84-151 33-276-115-385-117-86-255-142-385-188Z" fill="url(#roseFold)" opacity=".92"/>
+  <path d="M-100 1220C265 1040 515 1044 750 1176c220 124 339 275 445 424H-100Z" fill="#e1c6b7" opacity=".7"/>
+  <path d="M-100 1350c340-187 548-176 775-34 126 79 221 173 293 308H-100Z" fill="#8d7c88" opacity=".5"/>
+  <path d="M0 0H2560V1600H0Z" fill="none" stroke="#fff" stroke-opacity=".1" stroke-width="3"/>
+  <ellipse cx="450" cy="160" rx="420" ry="250" fill="#fff0d7" opacity=".15" filter="url(#soft)"/>
+</svg>

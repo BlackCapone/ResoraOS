@@ -1,0 +1,21 @@
+#!/bin/sh
+# Сессия Resora: Wayland-киоск cage с интерфейсом на WebKitGTK.
+export LANG=ru_RU.UTF-8
+export XDG_SESSION_TYPE=wayland
+export XKB_DEFAULT_LAYOUT=us,ru
+export XKB_DEFAULT_OPTIONS=grp:alt_shift_toggle
+export MOZ_ENABLE_WAYLAND=1
+export WEBKIT_DISABLE_DMABUF_RENDERER=1
+CMDLINE=$(cat /proc/cmdline 2>/dev/null)
+case " $CMDLINE " in
+  *" resora.safe=1 "*)
+    # Полностью программная отрисовка: для видеокарт, с которыми не работает остальное.
+    export WLR_RENDERER=pixman WEBKIT_DISABLE_COMPOSITING_MODE=1 LIBGL_ALWAYS_SOFTWARE=1 ;;
+  *" resora.gpu=1 "*)
+    # Аппаратное ускорение WebKit (быстрее, но на части видеокарт даёт пустой экран).
+    unset WEBKIT_DISABLE_DMABUF_RENDERER ;;
+  *)
+    # По умолчанию: надёжная отрисовка WebKit на процессоре, композитор — как получится.
+    export WEBKIT_DISABLE_COMPOSITING_MODE=1 ;;
+esac
+exec cage -s -- /usr/lib/resora/shell.py

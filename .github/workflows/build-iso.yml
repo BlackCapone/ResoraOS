@@ -1,0 +1,38 @@
+name: build-iso
+# Собирает ISO в облаке GitHub и выкладывает его в Releases (файлы до 2 ГБ).
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Тег релиза, например v1.0.0"
+        required: true
+        default: "v1.0.0"
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  iso:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Тесты моста
+        run: python3 -m unittest discover -s tests -v
+      - name: Сборка ISO
+        env:
+          RESORA_APT_URL: ${{ vars.RESORA_APT_URL }}
+        run: |
+          KEY=""; [ -f packaging/resora.gpg ] && KEY="$PWD/packaging/resora.gpg"
+          sudo env FIRMWARE=1 RESORA_APT_URL="$RESORA_APT_URL" RESORA_APT_KEY="$KEY" ./build-iso.sh
+      - name: Контрольная сумма
+        run: cd out && sha256sum resora-os.iso > resora-os.iso.sha256
+      - name: Релиз
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${{ github.event.inputs.tag || github.ref_name }}"
+          gh release create "$TAG" out/resora-os.iso out/resora-os.iso.sha256 \
+            --title "Resora OS $TAG" \
+            --notes "Загрузочный образ Resora OS. Запишите на флешку (Rufus, режим DD-образ), отключите Secure Boot." \
+          || gh release upload "$TAG" out/resora-os.iso out/resora-os.iso.sha256 --clobber

@@ -1,0 +1,3 @@
+// Автообновления ставят не только пакеты безопасности Ubuntu, но и новые версии самой Resora.
+Unattended-Upgrade::Origins-Pattern { "origin=Resora,archive=stable"; };
+Unattended-Upgrade::Automatic-Reboot "false";
