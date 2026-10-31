@@ -26,7 +26,9 @@ jobs:
           KEY=""; [ -f packaging/resora.gpg ] && KEY="$PWD/packaging/resora.gpg"
           sudo env FIRMWARE=1 RESORA_APT_URL="$RESORA_APT_URL" RESORA_APT_KEY="$KEY" ./build-iso.sh
       - name: Контрольная сумма
-        run: cd out && sha256sum resora-os.iso > resora-os.iso.sha256
+        run: |
+          sudo chown -R "$USER" out
+          cd out && sha256sum resora-os.iso > resora-os.iso.sha256
       - name: Релиз
         env:
           GH_TOKEN: ${{ github.token }}

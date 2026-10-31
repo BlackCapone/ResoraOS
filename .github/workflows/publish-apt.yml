@@ -4,9 +4,10 @@ name: publish-apt
 # Settings → Pages → Source: GitHub Actions.
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths: ["payload/**", "ui/**", "packaging/**"]
+  # Автозапуск при изменениях включите, когда добавите секрет APT_GPG_PRIVATE_KEY:
+  # push:
+  #   branches: [main]
+  #   paths: ["payload/**", "ui/**", "packaging/**"]
 permissions:
   contents: read
   pages: write
