@@ -1,0 +1,6 @@
+[workspace]
+resolver = "2"
+members = ["crates/resora-glass", "crates/glass-demo"]
+
+[profile.release]
+opt-level = 3

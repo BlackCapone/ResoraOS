@@ -1,0 +1,11 @@
+[package]
+name = "glass-demo"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+resora-glass = { path = "../resora-glass" }
+glow = "0.13"
+khronos-egl = { version = "6", features = ["dynamic"] }
+image = { version = "0.25", default-features = false, features = ["png"] }
+fontdue = "0.9"
